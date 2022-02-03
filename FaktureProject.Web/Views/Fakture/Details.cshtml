@@ -1,0 +1,105 @@
+﻿@model FaktureProject.Data.Models.Faktura
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details for Faktura br @Html.DisplayFor(model => model.BrojFakture)</h2>
+
+<div>
+    <h4>Faktura</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.BrojFakture)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BrojFakture)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DatumStvaranjaFakture)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DatumStvaranjaFakture)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DatumDospijecaFakture)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DatumDospijecaFakture)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Stavke)
+        </dt>
+        <dd>
+            <table class="table">
+                <tr>
+                    <th>Opis Stavke</th>
+                    <th>Kolicina</th>
+                    <th>Cijena</th>
+                    <th>Ukupna Cijena</th>
+                </tr>
+                @foreach (var item in Model.Stavke)
+                    {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.OpisStavke)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.KolicinaStavke)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.CijenaStavke)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.UkupnaCijena)
+                            </td>
+                        </tr>
+                    }
+            </table>
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.UkupnaCijenaBezPoreza)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UkupnaCijenaBezPoreza)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.UkupnaCijenaSPorezom)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UkupnaCijenaSPorezom)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Korisnik)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Korisnik)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Primatelj)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Primatelj)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
